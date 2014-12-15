@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script>
+      $(function(){
+        var reviewData = $([]);
+        $('#search-button').click(function(){
+          //display review page when search button is clicked
+          $('#landing').css('display','none');
+          $('#body').css('display','block')
+          //get the value of search
+          var searchVal = $('input').val();
+          $.get('/movies/'+searchVal, function (data) {
+            var getData= JSON.stringify(data);
+            var parseData = JSON.parse(getData);
+              $('h1').html('Movie Reviews for: '+parseData.movies.Title );
+              $("#review-data").empty();
+            //create or retrieve the reviews
+              createReviews(reviewData,searchVal);
+          });
+        });
+        $("#sub").click(function () {
+          var searchVal = $('input').val();
+          var email =$('#email').val();
+          var reviewMsg = $('textarea').val();
+          var reviewJSON ={email: email,review:reviewMsg,movie:searchVal};
+          //get all the data into reviewJSON, then post the data to create reviews.
+          $.post('/movies/reviews',reviewJSON,function(data){
+            reviewData = data;
+            console.log('dataaa ' + JSON.stringify(data));
+            $("#review-data").empty();
+            createReviews(reviewData,searchVal);
+            $('#email').val('');
+            $('textarea').val('');
+          });
+        });
+        //creates reviews and append to div
+        var createReviews= function(reviewData,movieTitle){
+          for (var i = 0, len = reviewData.length; i < len; i++) {
+            if(reviewData[i].movie ==movieTitle) {
+              console.log(reviewData[i].email);
+              $("#review-data").prepend("<div>Email: " + reviewData[i].email + "<div>Review: " + reviewData[i].review + "</div>" + "</div>");
+            }
+          }
+        };
+      });
+    </script>
+  </head>
+  <body>
+  <div id="header">
+  <section>
+    <nav>
+      <pre>Hi!</pre><a href=""> Sign in </a><pre>or</pre><a href=""> Register</a>   |
+      <a href="">Daily Deals</a>     |
+      <a href="">Gift Cards</a>      |
+      <a href="">Sell</a>      |
+      <a href="">Help & Control</a>
+      <h2>SHOP DEALS</h2>
+      <a href="">My eBay</a>
+    </nav>
+  </section>
+  </div>
+  <div id="search">
+    <div>
+    <img src="/images/ebay.jpg" alt="ebay" id="ebay-image"/>
+    <select class="shop-by-category">
+      <option>Shop by category</option>
+    </select>
+    <input type="text" placeholder="Search..." class="search-bar">
+    <select>
+      <option>All Categories</option>
+    </select>
+    <button id="search-button">Search</button>
+      <pre>Advanced</pre>
+    </div>
+    <div id="deals">
+      <div>
+        <hr/>
+        <nav>
+          <ul>
+            <li>Following</li>
+            <li>Today</li>
+            <li><hr/></li>
+            <li>Motors</li>
+            <li>Fashion</li>
+            <li>Electronics</li>
+            <li>Collectibles & Art</li>
+            <li>Home & Garden</li>
+            <li>Sporting Goods</li>
+            <li>Toys & Hobbies</li>
+            <li>Deals & Gifts</li>
+          </ul>
+        </nav>
+        <hr/>
+      </div>
+    </div>
+  </div>
+  <div id="body">
+    <h1></h1>
+      <div id="info-child">
+        <div id="review-data"></div>
+       <span>Email: </span> <input type="text" placeholder="enter email" id="email"/>
+        <span>Review: </span><textarea rows="6" cols="50" placeholder="write reviews"></textarea>
+        <button id="sub">submit</button>
+    </div>
+  </div>
+  <div id="landing">
+    <div>
+    <img src="/images/ebay_landing.jpg" alt="ebay_landing"/>
+    </div>
+  </div>
+  </body>
+</html>

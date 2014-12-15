@@ -1,0 +1,241 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font: 1em "Calibri", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+pre{
+  display: inline;
+}
+a:nth-child(5),a:nth-child(6),a:nth-child(7),a:nth-child(8),a:nth-child(9),a:nth-child(10){
+  padding: 8px;
+  color: black
+}
+h2 {
+  display: inline-block;
+  font-weight: bold;
+  color: #193F90;
+  padding-left: 2em;
+  padding-top: 5px;
+  padding-right: 380px;
+}
+
+#header{
+  height: 30px;
+  box-shadow: 0 8px 4px -4px #DDDDDD;
+  margin:6px;
+}
+#header > section{
+  width: 1200px;
+  margin: 0 auto;
+}
+#search{
+  height: 122px;
+  background-color: #F8F8F8;
+}
+#search > div{
+  width: 1200px;
+  height: 50px;
+  background-color: #F8F8F8;
+  margin: 0px auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+#search >div>select{
+  width: 75px;
+  background-color: #F8F8F8;
+  border: #F8F8F8 ;
+}
+#search >div>select:last-of-type{
+  background-color: white;
+  width: 180px;
+  border-radius: 5px;
+  margin-left: 5px;
+  border: 2px solid #DDDDDD;
+  padding-left: 5px;
+}
+#ebay-image{
+  width: 130px;
+}
+#search >div>button{
+  height: 50px;
+  width: 90px;
+  border-radius: 5px;
+  color: white;
+  background-color: #0054A0;
+  margin-left: 5px;
+  border:#0054A0;
+  font-weight: bolder;
+  cursor: pointer;
+}
+#search>div>pre{
+  color: #767679;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+.search-bar{
+  width: 630px;
+  border-radius: 5px;
+  margin-left: 5px;
+  border: 2px solid #DDDDDD;
+  padding-left: 10px;
+
+}
+ul{
+  padding-left: 22px;
+}
+ul li{
+  display: inline;
+  padding: 16px;
+  color: #4a4f4e
+}
+ul li > hr{
+  display: inline;
+  width: 3px;
+}
+
+#deals > div{
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+#body{
+  background-color: #F8F8F8;
+  height: 600px;
+  padding:0px;
+  display: none;
+}
+
+#landing{
+  background-color: #F8F8F8;
+  height: 600px;
+  display:flex;
+}
+#landing > div{
+  width: 1200px;
+  margin: 15px auto;
+  height: 430px;
+}
+#landing > div > img{
+  height: 100%;
+  width: 100%;
+}
+#info-child {
+  margin: 0 auto;
+  width: 500px;
+  background-color: #c3c5ff;
+  padding-left: 50px;
+  padding-top: 2px;
+  padding-bottom: 34px;
+  border-radius: 10px;
+  padding-top: 22px;
+}
+#info-child input{
+  margin: .5em;
+  border-radius: 5px;
+  border: 5px solid;
+  padding-left: 5px;
+}
+textarea{
+  display: block;
+  margin: .5em;
+  border: 5px solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+span{
+  width: 150px;
+  font-weight: bold;
+  font-family: HelveticaNeue-Light;
+}
+
+#review-data{
+  left: 20px;
+  padding-right: 48px;
+}
+#review-data > div{
+  background-color: cornflowerblue;
+  font-weight: bold;
+  padding: 2em;
+  font-family: HelveticaNeue-Light;
+  margin: 2em;
+  border-radius: 5px;
+
+}
+
+#sub{
+  float: right;
+  position: relative;
+  border-radius: 5px;
+  color: white;
+  background-color:darkturquoise ;
+  font-weight: bolder;
+  margin-right: 50px;
+}
+
+span:last-of-type{
+  display: block;
+}
+
+h1 {
+  font-size: 250%;
+  padding-left: 350px;
+}
+hr{
+  color: #DDDDDD;
+  border: .3px solid ;
+}
